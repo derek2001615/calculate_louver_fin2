@@ -18,40 +18,40 @@ class Cal:
         self.T_o2 = T_o2
         self.T_o1 = T_o1
 
-    def cal_Re_Lp(self, V_c, L_p, viscosity_o):
-        Re = V_c * L_p / viscosity_o
+    def cal_Re_Lp(self):
+        Re = self.V_c * self.L_p / self.viscosity_o
         return Re
 
-    def cal_colburn_j_factor(self, L_alpha, F_p, H, F_d, L_l, T_p, delta_f):
-        Re = self.cal_Re_Lp(self.V_c, self.L_p, self.viscosity_o)
-        j = Re**-0.487 * (L_alpha / 90)**0.257 * (F_p / self.L_p)**-0.13 * \
-            (H / self.L_p)**-0.29 * (F_d / self.L_p)**-0.235 * \
-            (L_l / self.L_p)**0.68 * (T_p / self.L_p)**-0.279 * \
-            (delta_f / self.L_p)**-0.05
+    def cal_colburn_j_factor(self):
+        Re = self.cal_Re_Lp()
+        j = Re**-0.487 * (self.L_alpha / 90)**0.257 * (self.F_p / self.L_p)**-0.13 * \
+            (self.H / self.L_p)**-0.29 * (self.F_d / self.L_p)**-0.235 * \
+            (self.L_l / self.L_p)**0.68 * (self.T_p / self.L_p)**-0.279 * \
+            (self.delta_f / self.L_p)**-0.05
         return j
 
-    def cal_fanning_friction_factor(self, L_alpha, F_p, H, F_d, L_l):
-        Re = self.cal_Re_Lp(self.V_c, self.L_p, self.viscosity_o)
-        f = Re**-0.781 * (L_alpha / 90)**0.444 * (F_p / self.L_p)**-1.682 * \
-            (H / self.L_p)**-1.22 * (F_d / self.L_p)**-0.818 * \
-            (L_l / self.L_p)**1.97
+    def cal_fanning_friction_factor(self):
+        Re = self.cal_Re_Lp()
+        f = Re**-0.781 * (self.L_alpha / 90)**0.444 * (self.F_p / self.L_p)**-1.682 * \
+            (self.H / self.L_p)**-1.22 * (self.F_d / self.L_p)**-0.818 * \
+            (self.L_l / self.L_p)**1.97
         return f
 
-    def cal_Nusselt_number(self, Pr_o):
-        j_factor = self.cal_colburn_j_factor(self.L_alpha, self.F_p, self.H, self.F_d, self.L_l, self.T_p, self.delta_f)
-        return j_factor * self.cal_Re_Lp(self.V_c, self.L_p, self.viscosity_o) * Pr_o**(1/3)
+    def cal_Nusselt_number(self):
+        j_factor = self.cal_colburn_j_factor()
+        return j_factor * self.cal_Re_Lp() * self.Pr_o**(1/3)
 
-    def cal_pressure_drop(self, A_o, A_c, density_m, V_c):
-        f = self.cal_fanning_friction_factor(self.L_alpha, self.F_p, self.H, self.F_d, self.L_l)
-        return f * A_o / A_c * density_m * V_c**2 / 2
+    def cal_pressure_drop(self):
+        f = self.cal_fanning_friction_factor()
+        return f * self.A_o / self.A_c * self.density_m * self.V_c**2 / 2
 
-    def cal_h_o(self, density_m, V_c, Cp_o, Pr_o):
-        j_factor = self.cal_colburn_j_factor(self.L_alpha, self.F_p, self.H, self.F_d, self.L_l, self.T_p, self.delta_f)
-        return j_factor * density_m * V_c * Cp_o / Pr_o**(2/3)
+    def cal_h_o(self):
+        j_factor = self.cal_colburn_j_factor()
+        return j_factor * self.density_m * self.V_c * self.Cp_o / self.Pr_o**(2/3)
 
-    def cal_heat_transfer(self, A_o, T_o2, T_o1):
-        h_o = self.cal_h_o(self.density_m, self.V_c, self.Cp_o, self.Pr_o)
-        return h_o * A_o * (T_o2 - T_o1)
+    def cal_heat_transfer(self):
+        h_o = self.cal_h_o()
+        return h_o * self.A_o * (self.T_o2 - self.T_o1)
 
 def set_value():
     return (
@@ -78,13 +78,13 @@ def main():
     params = set_value()
     calculator = Cal(*params)
 
-    print("Re_Lp:", calculator.cal_Re_Lp(calculator.V_c, calculator.L_p, calculator.viscosity_o))
-    print("Colburn j-factor:", calculator.cal_colburn_j_factor(calculator.L_alpha, calculator.F_p, calculator.H, calculator.F_d, calculator.L_l, calculator.T_p, calculator.delta_f))
-    print("Fanning friction factor:", calculator.cal_fanning_friction_factor(calculator.L_alpha, calculator.F_p, calculator.H, calculator.F_d, calculator.L_l))
-    print("Nusselt number:", calculator.cal_Nusselt_number(calculator.Pr_o))
-    print("Pressure drop:", calculator.cal_pressure_drop(calculator.A_o, calculator.A_c, calculator.density_m, calculator.V_c))
-    print("Heat transfer coefficient h_o:", calculator.cal_h_o(calculator.density_m, calculator.V_c, calculator.Cp_o, calculator.Pr_o))
-    print("Heat transfer Q:", calculator.cal_heat_transfer(calculator.A_o, calculator.T_o2, calculator.T_o1))
+    print("Re_Lp:", calculator.cal_Re_Lp())
+    print("Colburn j-factor:", calculator.cal_colburn_j_factor())
+    print("Fanning friction factor:", calculator.cal_fanning_friction_factor())
+    print("Nusselt number:", calculator.cal_Nusselt_number())
+    print("Pressure drop:", calculator.cal_pressure_drop())
+    print("Heat transfer coefficient h_o:", calculator.cal_h_o())
+    print("Heat transfer Q:", calculator.cal_heat_transfer())
 
 if __name__ == '__main__':
     main()
