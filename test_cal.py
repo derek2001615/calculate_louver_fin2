@@ -27,10 +27,10 @@ def main():
 
     print("Re_Lp:", caldata001.Re_Lp)
     print("Colburn j-factor:", caldata001.j)
-    print("Fanning friction factor:", caldata001.cal_fanning_friction_factor())
+    print("Fanning friction factor:", caldata001.f)
     print("Nusselt number:", caldata001.cal_Nusselt_number())
     print("Pressure drop:", caldata001.cal_pressure_drop())
-    print("Heat transfer coefficient h_o:", caldata001.cal_h_o())
+    print("Heat transfer coefficient h_o:", caldata001.h_o)
     print("Heat transfer Q:", caldata001.cal_heat_transfer())
 
 if __name__ == '__main__':

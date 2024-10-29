@@ -20,6 +20,7 @@ class MultiLouvered:
         self.cal_Re_Lp()
         self.cal_colburn_j_factor()
         self.cal_fanning_friction_factor()
+        self.cal_h_o()
 
     def cal_Re_Lp(self):
         self.Re_Lp = self.V_c * self.L_p / self.viscosity_o
@@ -54,10 +55,10 @@ class MultiLouvered:
         return delta_P
 
     def cal_h_o(self):
-        h_O = self.j * self.density_m * self.V_c * self.Cp_o / self.Pr_o**(2/3)
-        return h_O
+        self.h_o = self.j * self.density_m * self.V_c * self.Cp_o / self.Pr_o**(2/3)
+        
 
     def cal_heat_transfer(self):
-        Q = self.cal_h_o() * self.A_o * (self.T_o2 - self.T_o1)
+        Q = self.h_o * self.A_o * (self.T_o2 - self.T_o1)
         return Q
     
