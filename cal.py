@@ -57,7 +57,6 @@ class MultiLouvered:
     def cal_h_o(self):
         self.h_o = self.j * self.density_m * self.V_c * self.Cp_o / self.Pr_o**(2/3)
         
-
     def cal_heat_transfer(self):
         Q = self.h_o * self.A_o * (self.T_o2 - self.T_o1)
         return Q
