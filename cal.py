@@ -25,7 +25,6 @@ class MultiLouvered:
     def cal_Re_Lp(self):
         self.Re_Lp = self.V_c * self.L_p / self.viscosity_o
         
-
     def cal_colburn_j_factor(self):
         Re_Lp = self.Re_Lp
         self.j = Re_Lp**-0.487 * \
@@ -37,7 +36,6 @@ class MultiLouvered:
         (self.T_p / self.L_p)**-0.279 * \
         (self.delta_f / self.L_p)**-0.05
         
-
     def cal_fanning_friction_factor(self):
         self.f = self.Re_Lp**-0.781 * \
         (self.L_alpha / 90)**0.444 * \
