@@ -19,6 +19,7 @@ class MultiLouvered:
         self.T_o1 = T_o1
         self.cal_Re_Lp()
         self.cal_colburn_j_factor()
+        self.cal_fanning_friction_factor()
 
     def cal_Re_Lp(self):
         self.Re_Lp = self.V_c * self.L_p / self.viscosity_o
@@ -37,20 +38,19 @@ class MultiLouvered:
         
 
     def cal_fanning_friction_factor(self):
-        f = self.Re_Lp**-0.781 * \
+        self.f = self.Re_Lp**-0.781 * \
         (self.L_alpha / 90)**0.444 * \
         (self.F_p / self.L_p)**-1.682 * \
         (self.H / self.L_p)**-1.22 * \
         (self.F_d / self.L_p)**0.818 * \
         (self.L_l / self.L_p)**1.97
-        return f
 
     def cal_Nusselt_number(self):
         Nu = self.j * self.Re_Lp * self.Pr_o**(1/3)
         return Nu
 
     def cal_pressure_drop(self):
-        delta_P = self.cal_fanning_friction_factor() * self.A_o / self.A_c * self.density_m * self.V_c**2 / 2
+        delta_P = self.f * self.A_o / self.A_c * self.density_m * self.V_c**2 / 2
         return delta_P
 
     def cal_h_o(self):
@@ -60,3 +60,4 @@ class MultiLouvered:
     def cal_heat_transfer(self):
         Q = self.cal_h_o() * self.A_o * (self.T_o2 - self.T_o1)
         return Q
+    
