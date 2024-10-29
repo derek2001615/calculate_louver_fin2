@@ -26,8 +26,7 @@ class MultiLouvered:
         self.Re_Lp = self.V_c * self.L_p / self.viscosity_o
         
     def cal_colburn_j_factor(self):
-        Re_Lp = self.Re_Lp
-        self.j = Re_Lp**-0.487 * \
+        self.j = self.Re_Lp**-0.487 * \
         (self.L_alpha / 90)**0.257 * \
         (self.F_p / self.L_p)**-0.13 * \
         (self.H / self.L_p)**-0.29 * \
