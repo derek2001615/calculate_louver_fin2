@@ -15,7 +15,7 @@ Louver fin with a flat tube
 .. raw:: html
      
      <img src="LF.jpg" alt="Description of the image" width="100%" height="auto">
-     <p><em>Figure 1: Schematic of a Louver fin with a flat tube <a href="https://www.sciencedirect.com/science/article/pii/0017931096001160">Y.J. Chang, C.C. Wang</a></em></p>
+     <p><em>Figure 1: Schematic of a Louver fin with a flat tube <a href="https://www.sciencedirect.com/science/article/pii/S0140700701000251">Man-Hoe Kim, Clark W. Bullard</a></em></p>
 
 
 Features
