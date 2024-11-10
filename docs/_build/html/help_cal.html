@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Help - Usage &#8212; MultiLouvered 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="calculate_louver_fin2" href="modules.html" />
+    <link rel="prev" title="MultiLouvered documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="help-usage">
+<h1>Help - Usage<a class="headerlink" href="#help-usage" title="Link to this heading">¶</a></h1>
+<section id="multi-louvered-fin">
+<h2>multi-louvered fin<a class="headerlink" href="#multi-louvered-fin" title="Link to this heading">¶</a></h2>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>The package calculates different features of a Louver fin with a flat tube</p>
+<section id="schematic-of-louver-fin">
+<h3>Schematic of louver fin<a class="headerlink" href="#schematic-of-louver-fin" title="Link to this heading">¶</a></h3>
+<img src="_static/html/MLFdef1.JPG" alt="Description of the image" width="100%" height="auto">
+<p><em>Figure 1:Definition of geometrical parameters for a multi-louvered fin heat exchanger <a href="https://www.sciencedirect.com/science/article/pii/S0140700701000251">Man-Hoe Kim, Clark W. Bullard</a></em></p><img src="_static/html/MLFdef2.JPG" alt="Description of the image" width="100%" height="auto">
+<p><em>Figure 2:Definition of geometrical parameters for a multi-louvered fin heat exchanger <a href="https://www.sciencedirect.com/science/article/pii/S0140700701000251">Man-Hoe Kim, Clark W. Bullard</a></em></p><img src="_static/html/MLFdef3.JPG" alt="Description of the image" width="100%" height="auto">
+<p><em>Figure 3:Cross-section of louver fin geometry <a href="https://www.sciencedirect.com/science/article/pii/S0140700701000251">Man-Hoe Kim, Clark W. Bullard</a></em></p></section>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>colburn j factor</p></li>
+<li><p>fanning friction factor</p></li>
+<li><p>h_o heat transfer coefficient</p></li>
+<li><p>pressure drop</p></li>
+<li><p>Nusselt_number</p></li>
+</ul>
+</section>
+<section id="instance">
+<h2>Instance<a class="headerlink" href="#instance" title="Link to this heading">¶</a></h2>
+<p>For the instance you need to provide the following parameters:</p>
+<p>Fin parameters:</p>
+<ul class="simple">
+<li><p>F_p = Fin pitch [m]</p></li>
+<li><p>H = Fin height [m]</p></li>
+<li><p>delta_f = Fin thickness [m]</p></li>
+</ul>
+<p>Louver parameters:</p>
+<ul class="simple">
+<li><p>louver_pitch=L_p [m]</p></li>
+<li><p>louver_angle=L_alpha (deg)</p></li>
+<li><p>louver_length=L_l [m]</p></li>
+</ul>
+<p>Tube parameters:</p>
+<ul class="simple">
+<li><p>tube_pitch=T_p [m]</p></li>
+</ul>
+<p>Air parameters:</p>
+<ul class="simple">
+<li><p>V_c=Maximum air velocity [m/s]</p></li>
+<li><p>viscosity_o = Viscosity of air [kg/m-s]</p></li>
+<li><p>F_d = Flow depth [m]</p></li>
+<li><p>Pr_o = Prandtl number of air</p></li>
+<li><p>A_o = Total air-side surface area [m^2]</p></li>
+<li><p>A_c = Minimum free-flow area for air side [m^2]</p></li>
+<li><p>density_m = Mean average air density [m^2]</p></li>
+<li><p>Cp_o = Specific heat of air [J/kg-K]</p></li>
+<li><p>T_o2 = airside oulet temperature [K]</p></li>
+<li><p>T_o1 = airside inlet temperature [K]</p></li>
+</ul>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cal</span> <span class="kn">import</span> <span class="n">MultiLouvered</span> <span class="k">as</span> <span class="n">cal</span>
+
+<span class="k">def</span> <span class="nf">get_data001</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;V_c&#39;</span><span class="p">:</span> <span class="mf">3.27</span><span class="p">,</span>
+        <span class="s1">&#39;L_p&#39;</span><span class="p">:</span> <span class="mf">0.0017</span><span class="p">,</span>
+        <span class="s1">&#39;viscosity_o&#39;</span><span class="p">:</span> <span class="mf">1.85</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**-</span><span class="mi">5</span><span class="p">,</span>
+        <span class="s1">&#39;L_alpha&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+        <span class="s1">&#39;F_p&#39;</span><span class="p">:</span> <span class="mf">0.0014</span><span class="p">,</span>
+        <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.00815</span><span class="p">,</span>
+        <span class="s1">&#39;F_d&#39;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span>
+        <span class="s1">&#39;L_l&#39;</span><span class="p">:</span> <span class="mf">0.0064</span><span class="p">,</span>
+        <span class="s1">&#39;T_p&#39;</span><span class="p">:</span> <span class="mf">0.01015</span><span class="p">,</span>
+        <span class="s1">&#39;delta_f&#39;</span><span class="p">:</span> <span class="mf">0.0001</span><span class="p">,</span>
+        <span class="s1">&#39;Pr_o&#39;</span><span class="p">:</span> <span class="mf">0.71</span><span class="p">,</span>
+        <span class="s1">&#39;A_o&#39;</span><span class="p">:</span> <span class="mf">0.1785</span><span class="p">,</span>
+        <span class="s1">&#39;A_c&#39;</span><span class="p">:</span> <span class="mf">0.0084</span><span class="p">,</span>
+        <span class="s1">&#39;density_m&#39;</span><span class="p">:</span> <span class="mf">1.225</span><span class="p">,</span>
+        <span class="s1">&#39;Cp_o&#39;</span><span class="p">:</span> <span class="mi">1007</span><span class="p">,</span>
+        <span class="s1">&#39;T_o2&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="s1">&#39;T_o1&#39;</span><span class="p">:</span> <span class="mi">21</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">J_colburn_factor</span> <span class="o">=</span> <span class="n">louver</span><span class="o">.</span><span class="n">j</span>
+<span class="n">friction_factor</span> <span class="o">=</span> <span class="n">louver</span><span class="o">.</span><span class="n">f</span>
+<span class="n">heat</span> <span class="n">transfer_coefficient</span><span class="o">=</span><span class="n">louver</span><span class="o">.</span><span class="n">h_c</span>
+<span class="n">Pressure_drop</span><span class="o">=</span><span class="n">louver</span><span class="o">.</span><span class="n">pressure_drop</span>
+<span class="n">efficiency</span><span class="o">=</span><span class="n">louver</span><span class="o">.</span><span class="n">eta_overall</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Results</span>
+<span class="n">J_colburn_factor</span> <span class="o">=</span> <span class="mf">0.0259</span>
+<span class="n">friction_factor</span> <span class="o">=</span> <span class="mf">0.147</span>
+<span class="n">heat</span> <span class="n">transfer_coefficient</span><span class="o">=</span><span class="mf">129.0434</span>
+<span class="n">Pressure_drop</span><span class="o">=</span><span class="mf">29.0999</span>
+<span class="n">efficiency</span><span class="o">=</span><span class="mf">0.619</span>
+</pre></div>
+</div>
+<iframe src="./graph/fp_re_f.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe></section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">MultiLouvered</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Help - Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#multi-louvered-fin">multi-louvered fin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instance">Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">calculate_louver_fin2</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">MultiLouvered documentation</a></li>
+      <li>Next: <a href="modules.html" title="next chapter">calculate_louver_fin2</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Derek.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/help_cal.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

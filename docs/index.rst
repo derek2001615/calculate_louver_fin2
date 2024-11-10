@@ -15,13 +15,7 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
+   help_cal
    modules
 
 
-
-Indicies and tables
-===================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
