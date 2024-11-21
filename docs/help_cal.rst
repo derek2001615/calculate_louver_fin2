@@ -118,7 +118,8 @@ Usage
 
 .. raw:: html
      
-     <iframe src="C:/Users/derek/Desktop/pythoncode/calculate_louver_fin2/docs/graph/F_d20.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
+     <iframe src="_static/graph/F_d20_f.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
+     <iframe src="_static/graph/F_d20_j.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
      
 .. footer:: &copy; 2024 CC Wang Lab.
 
