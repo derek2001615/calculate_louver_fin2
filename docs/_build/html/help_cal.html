@@ -54,8 +54,9 @@
 <li><p>colburn j factor</p></li>
 <li><p>fanning friction factor</p></li>
 <li><p>h_o heat transfer coefficient</p></li>
-<li><p>pressure drop</p></li>
 <li><p>Nusselt_number</p></li>
+<li><p>pressure drop</p></li>
+<li><p>heat_transfer</p></li>
 </ul>
 </section>
 <section id="instance">
@@ -117,23 +118,22 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">J_colburn_factor</span> <span class="o">=</span> <span class="n">louver</span><span class="o">.</span><span class="n">j</span>
-<span class="n">friction_factor</span> <span class="o">=</span> <span class="n">louver</span><span class="o">.</span><span class="n">f</span>
-<span class="n">heat</span> <span class="n">transfer_coefficient</span><span class="o">=</span><span class="n">louver</span><span class="o">.</span><span class="n">h_c</span>
-<span class="n">Pressure_drop</span><span class="o">=</span><span class="n">louver</span><span class="o">.</span><span class="n">pressure_drop</span>
-<span class="n">efficiency</span><span class="o">=</span><span class="n">louver</span><span class="o">.</span><span class="n">eta_overall</span>
-</pre></div>
-</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Results</span>
-<span class="n">J_colburn_factor</span> <span class="o">=</span> <span class="mf">0.0259</span>
-<span class="n">friction_factor</span> <span class="o">=</span> <span class="mf">0.147</span>
-<span class="n">heat</span> <span class="n">transfer_coefficient</span><span class="o">=</span><span class="mf">129.0434</span>
-<span class="n">Pressure_drop</span><span class="o">=</span><span class="mf">29.0999</span>
-<span class="n">efficiency</span><span class="o">=</span><span class="mf">0.619</span>
+<span class="n">Re_Lp</span><span class="o">=</span><span class="mf">300.48648648648646</span>
+<span class="n">Colburn</span> <span class="n">j</span><span class="o">-</span><span class="n">factor</span><span class="o">=</span><span class="mf">0.02751081198746386</span>
+<span class="n">Fanning</span> <span class="n">friction</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.13274886789270648</span>
+<span class="n">Nusselt</span> <span class="n">number</span><span class="o">=</span><span class="mf">7.374758516438942</span>
+<span class="n">Pressure</span> <span class="n">drop</span><span class="o">=</span><span class="mf">18.475294027892254</span>
+<span class="n">Heat</span> <span class="n">transfer</span> <span class="n">coefficient</span> <span class="n">h_o</span><span class="o">=</span><span class="mf">139.43693300161488</span>
+<span class="n">Heat</span> <span class="n">transfer</span> <span class="n">Q</span><span class="o">=</span><span class="mf">224.00543286709427</span>
 </pre></div>
 </div>
+<iframe src="_static/graph/F_d16_f.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
+<iframe src="_static/graph/F_d16_j.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
 <iframe src="_static/graph/F_d20_f.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
-<iframe src="_static/graph/F_d20_j.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe></section>
+<iframe src="_static/graph/F_d20_j.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
+<iframe src="_static/graph/F_d24_f.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
+<iframe src="_static/graph/F_d24_j.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe></section>
 </section>
 
 

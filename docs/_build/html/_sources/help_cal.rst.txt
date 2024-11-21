@@ -33,8 +33,9 @@ Features
 - colburn j factor
 - fanning friction factor
 - h_o heat transfer coefficient
-- pressure drop
 - Nusselt_number
+- pressure drop
+- heat_transfer
 
 Instance
 --------
@@ -98,28 +99,25 @@ Usage
     }
 
 
-
-::
-
-     J_colburn_factor = louver.j
-     friction_factor = louver.f
-     heat transfer_coefficient=louver.h_c
-     Pressure_drop=louver.pressure_drop
-     efficiency=louver.eta_overall
-
 ::
 
      #Results
-     J_colburn_factor = 0.0259
-     friction_factor = 0.147
-     heat transfer_coefficient=129.0434
-     Pressure_drop=29.0999
-     efficiency=0.619
+     Re_Lp=300.48648648648646
+     Colburn j-factor=0.02751081198746386
+     Fanning friction factor=0.13274886789270648
+     Nusselt number=7.374758516438942
+     Pressure drop=18.475294027892254
+     Heat transfer coefficient h_o=139.43693300161488
+     Heat transfer Q=224.00543286709427
 
 .. raw:: html
      
+     <iframe src="_static/graph/F_d16_f.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
+     <iframe src="_static/graph/F_d16_j.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
      <iframe src="_static/graph/F_d20_f.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
      <iframe src="_static/graph/F_d20_j.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
+     <iframe src="_static/graph/F_d24_f.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
+     <iframe src="_static/graph/F_d24_j.html" frameborder="0" scrolling="0" width="1000" height="700"></iframe>
      
 .. footer:: &copy; 2024 CC Wang Lab.
 

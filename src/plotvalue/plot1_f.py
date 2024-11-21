@@ -18,10 +18,10 @@ f4_values = f4()
 
 fig1 = go.Figure()
 
-fig1.add_trace(go.Scatter(x=Re_Lp_values, y=f1_values, mode='lines+markers', name='23 degree'))
-fig1.add_trace(go.Scatter(x=Re_Lp_values, y=f2_values, mode='lines+markers', name='25 degree'))
-fig1.add_trace(go.Scatter(x=Re_Lp_values, y=f3_values, mode='lines+markers', name='27 degree'))
-fig1.add_trace(go.Scatter(x=Re_Lp_values, y=f4_values, mode='lines+markers', name='29 degree'))
+fig1.add_trace(go.Scatter(x=Re_Lp_values, y=f1_values, mode='lines+markers', name='23 degree', line=dict(shape='spline')))
+fig1.add_trace(go.Scatter(x=Re_Lp_values, y=f2_values, mode='lines+markers', name='25 degree', line=dict(shape='spline')))
+fig1.add_trace(go.Scatter(x=Re_Lp_values, y=f3_values, mode='lines+markers', name='27 degree', line=dict(shape='spline')))
+fig1.add_trace(go.Scatter(x=Re_Lp_values, y=f4_values, mode='lines+markers', name='29 degree', line=dict(shape='spline')))
 
 fig1.update_layout(title="Fd=20mm", xaxis_title="Re_Lp", yaxis_title="fanning_friction_factor", template="plotly_dark")
 

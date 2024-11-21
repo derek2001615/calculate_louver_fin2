@@ -18,10 +18,10 @@ j4_values = j4()
 
 fig1 = go.Figure()
 
-fig1.add_trace(go.Scatter(x=Re_Lp_values, y=j1_values, mode='lines+markers', name='23 degree'))
-fig1.add_trace(go.Scatter(x=Re_Lp_values, y=j2_values, mode='lines+markers', name='25 degree'))
-fig1.add_trace(go.Scatter(x=Re_Lp_values, y=j3_values, mode='lines+markers', name='27 degree'))
-fig1.add_trace(go.Scatter(x=Re_Lp_values, y=j4_values, mode='lines+markers', name='29 degree'))
+fig1.add_trace(go.Scatter(x=Re_Lp_values, y=j1_values, mode='lines+markers', name='23 degree', line=dict(shape='spline')))
+fig1.add_trace(go.Scatter(x=Re_Lp_values, y=j2_values, mode='lines+markers', name='25 degree', line=dict(shape='spline')))
+fig1.add_trace(go.Scatter(x=Re_Lp_values, y=j3_values, mode='lines+markers', name='27 degree', line=dict(shape='spline')))
+fig1.add_trace(go.Scatter(x=Re_Lp_values, y=j4_values, mode='lines+markers', name='29 degree', line=dict(shape='spline')))
 
 fig1.update_layout(title="Fd=16mm", xaxis_title="Re_Lp", yaxis_title="colburn_j_factor", template="plotly_dark")
 
