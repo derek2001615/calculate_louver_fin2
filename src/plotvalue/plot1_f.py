@@ -23,8 +23,8 @@ fig1.add_trace(go.Scatter(x=Re_Lp_values, y=f2_values, mode='lines+markers', nam
 fig1.add_trace(go.Scatter(x=Re_Lp_values, y=f3_values, mode='lines+markers', name='27 degree', line=dict(shape='spline')))
 fig1.add_trace(go.Scatter(x=Re_Lp_values, y=f4_values, mode='lines+markers', name='29 degree', line=dict(shape='spline')))
 
-fig1.update_layout(title="Fd=20mm", xaxis_title="Re_Lp", yaxis_title="fanning_friction_factor", template="plotly_dark")
+fig1.update_layout(title="Fd=16mm", xaxis_title="Re_Lp", yaxis_title="fanning_friction_factor", template="plotly_dark")
 
 fig1.show()
-fig1.write_html("F_d20_f.html")
+fig1.write_html("F_d16_f.html")
 

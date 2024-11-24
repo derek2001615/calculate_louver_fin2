@@ -28,6 +28,14 @@ j2_values = j2()
 j3_values = j3()
 j4_values = j4()
 
+f_min = min(min(f1_values), min(f2_values), min(f3_values), min(f4_values))
+f_max = max(max(f1_values), max(f2_values), max(f3_values), max(f4_values))
+j_min = min(min(j1_values), min(j2_values), min(j3_values), min(j4_values))
+j_max = max(max(j1_values), max(j2_values), max(j3_values), max(j4_values))
+
+min_y = min(f_min, j_min)
+max_y = max(f_max, j_max)
+
 fig1 = go.Figure()
 
 fig1.add_trace(go.Scatter(x=Re_Lp_values, y=f1_values, mode='lines+markers', name='23 degree', yaxis='y1', line=dict(shape='spline')))
@@ -43,19 +51,21 @@ fig1.add_trace(go.Scatter(x=Re_Lp_values, y=j4_values, mode='lines+markers', nam
 
 
 fig1.update_layout(
-    title="Fd=20mm",
+    title="Fd=16mm",
     xaxis=dict(title='Re_Lp'), 
     yaxis=dict(
-        title='fanning_friction_factor'
+        title='fanning_friction_factor',
+        range=[min_y, max_y]
     ),
     yaxis2=dict(
         title='colburn_j_factor',
         overlaying='y',
-        side='right'
+        side='right',
+        range=[min_y, max_y]
     ), 
     template="plotly_dark"
     )
 
 fig1.show()
-fig1.write_html("F_d20.html")
+fig1.write_html("F_d16.html")
 
