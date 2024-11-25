@@ -1,7 +1,7 @@
 Help - Usage
 ========================
 
-multi-louvered fin
+Multi-louvered fin
 --------------------------
 
 Description
@@ -97,6 +97,9 @@ Usage
             'T_o2': 30,
             'T_o1': 21
     }
+
+    data001 = get_data001()
+    caldata001 = cal(**data001)
 
 
 ::
